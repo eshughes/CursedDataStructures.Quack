@@ -9,11 +9,14 @@ namespace QuackTests
         [TestMethod]
         public void FeedDuckReturnsSingleItemQuack()
         {
-            var quack1 = new Duck().Feed("bread");
+            var witch = new Witch();
+            Duck duck = witch;
+
+            var quack1 = duck.Feed("bread");
             Assert.AreEqual("bread", quack1.Pop());
             Assert.IsTrue(quack1.IsEmpty());
 
-            var quack2 = new Duck().Feed(1);
+            var quack2 = duck.Feed(1);
             Assert.AreEqual(1, quack2.Dequeue());
             Assert.IsTrue(quack2.IsEmpty());
         }

@@ -2,6 +2,6 @@
 {
     public interface IDuck
     {
-        public Quack<T> Feed<T>(T item);
+        protected Quack<T> Feed<T>(T item);
     }
 }

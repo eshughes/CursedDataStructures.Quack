@@ -8,6 +8,17 @@ namespace Quack
 {
     public class Duck : IDuck
     {
+        internal Duck()
+        {
+        }
+
+        public static implicit operator Duck(Witch d) => new Duck();
+
+        public Egg Lay()
+        {
+            return new Egg();
+        }
+
         public Quack<T> Feed<T>(T item)
         {
             var quack = new Quack<T>();
