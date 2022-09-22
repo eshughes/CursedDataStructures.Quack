@@ -15,11 +15,21 @@
             return _quack.Count == 0;
         }
 
+        /// <summary>
+        /// Insert item at the head
+        /// </summary>
+        /// <returns></returns>
         public void Push(T item)
         {
             _quack.AddFirst(item);
         }
 
+
+        /// <summary>
+        /// Retrieve item from the head
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
         public T Pop()
         {
             if (this.IsEmpty())
@@ -27,16 +37,26 @@
                 throw new InvalidOperationException();
             }
 
-            var removed = _quack.First();
+            var head = _quack.First();
             _quack.RemoveFirst();
-            return removed;
+            return head;
         }
 
+
+        /// <summary>
+        /// Insert item at the tail
+        /// </summary>
+        /// <returns></returns>
         public void Enqueue(T item)
         {
             _quack.AddLast(item); 
         }
 
+        /// <summary>
+        /// Retrieve item from the head
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
         public T Dequeue()
         {
             if (this.IsEmpty())
@@ -44,9 +64,9 @@
                 throw new InvalidOperationException();
             }
 
-            var removed = _quack.First();
+            var head = _quack.First();
             _quack.RemoveFirst();
-            return removed;
+            return head;
         }
     }
 }
