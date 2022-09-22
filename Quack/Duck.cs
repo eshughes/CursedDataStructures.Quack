@@ -27,7 +27,7 @@ namespace Quack
             var quacks = new List<Quack<T>>();
             foreach (var item in items)
             {
-                if (item.GetType() == typeof(Egg))
+                if (item is Egg)
                 {
                     throw new ObjectDisposedException(nameof(Egg));
                 }
