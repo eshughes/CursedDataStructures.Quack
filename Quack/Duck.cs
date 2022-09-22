@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Quack
 {
+    /// <summary>
+    /// A duck is a quack factory
+    /// </summary>
     public class Duck : IDuck
     {
         internal Duck()
@@ -19,11 +22,21 @@ namespace Quack
             return new Egg();
         }
 
-        public Quack<T> Feed<T>(T item)
+        public List<Quack<T>> Feed<T>(params T[] items)
         {
-            var quack = new Quack<T>();
-            quack.Push(item);
-            return quack;
+            var quacks = new List<Quack<T>>();
+            foreach (var item in items)
+            {
+                if (item.GetType() == typeof(Egg))
+                {
+                    throw new ObjectDisposedException(nameof(Egg));
+                }
+
+                var quack = new Quack<T>();
+                quack.Push(item);
+                quacks.Add(quack);
+            }
+            return quacks;
         }
     }
 }

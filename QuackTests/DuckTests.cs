@@ -12,13 +12,16 @@ namespace QuackTests
             var witch = new Witch();
             Duck duck = witch;
 
-            var quack1 = duck.Feed("bread");
+            var quacks = duck.Feed("bread", "peas");
+
+            var quack1 = quacks[0];
             Assert.AreEqual("bread", quack1.Pop());
             Assert.IsTrue(quack1.IsEmpty());
 
-            var quack2 = duck.Feed(1);
-            Assert.AreEqual(1, quack2.Dequeue());
+            var quack2 = quacks[1];
+            Assert.AreEqual("peas", quack2.Dequeue());
             Assert.IsTrue(quack2.IsEmpty());
         }
+
     }
 }
